@@ -1,0 +1,51 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Configurer la prévision météo locale",
+        "description": "Choisissez la langue et les capteurs source.",
+        "data": {
+          "pressure_entity": "Capteur de pression (obligatoire)",
+          "temperature_entity": "Capteur de température (optionnel)",
+          "wind_speed_entity": "Capteur de vitesse du vent (optionnel)",
+          "wind_direction_entity": "Capteur de direction du vent (optionnel)",
+          "language": "Langue",
+          "pressure_is_sea_level": "Le capteur de pression est déjà corrigé au niveau de la mer",
+          "altitude": "Altitude (m)",
+          "hemisphere": "Hémisphère",
+          "update_interval": "Intervalle de mise à jour (secondes)"
+        }
+      }
+    },
+    "error": {
+      "entity_not_found": "Entité introuvable",
+      "invalid_pressure": "L'état du capteur de pression doit être numérique"
+    },
+    "abort": {
+      "single_instance_allowed": "Une seule configuration est autorisée"
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Mettre à jour la prévision météo locale",
+        "description": "Ajustez la langue et les capteurs source.",
+        "data": {
+          "pressure_entity": "Capteur de pression (obligatoire)",
+          "temperature_entity": "Capteur de température (optionnel)",
+          "wind_speed_entity": "Capteur de vitesse du vent (optionnel)",
+          "wind_direction_entity": "Capteur de direction du vent (optionnel)",
+          "language": "Langue",
+          "pressure_is_sea_level": "Le capteur de pression est déjà corrigé au niveau de la mer",
+          "altitude": "Altitude (m)",
+          "hemisphere": "Hémisphère",
+          "update_interval": "Intervalle de mise à jour (secondes)"
+        }
+      }
+    },
+    "error": {
+      "entity_not_found": "Entité introuvable",
+      "invalid_pressure": "L'état du capteur de pression doit être numérique"
+    }
+  }
+}

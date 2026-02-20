@@ -1,0 +1,15 @@
+{
+  "domain": "local_weather_forecast",
+  "name": "Local Weather Forecast",
+  "version": "0.1.0",
+  "documentation": "https://github.com/HAuser1234/homeassistant-local-weather-forecast",
+  "issue_tracker": "https://github.com/HAuser1234/homeassistant-local-weather-forecast/issues",
+  "codeowners": [
+    "@andrevillien"
+  ],
+  "config_flow": true,
+  "single_config_entry": true,
+  "integration_type": "helper",
+  "iot_class": "calculated",
+  "requirements": []
+}
