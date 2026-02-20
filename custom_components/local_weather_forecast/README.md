@@ -7,6 +7,7 @@ A Home Assistant custom integration that computes a 12-hour local forecast from 
 - Provides forecast text, trend, rain probability proxies and icon hints.
 - Exposes sensors compatible with legacy YAML cards.
 - Adds a full Home Assistant config UI (config flow + options flow).
+- Uses a weighted short-term temperature trend estimator (less noise than single-point extrapolation).
 
 ## Configuration UI
 Required:
@@ -33,6 +34,9 @@ Other options:
 - `sensor.local_forecast_pressurechange`
 - `sensor.local_forecast_temperaturechange`
 
+Main sensor extra attributes also include:
+- `temperature_trend_slope_1h`
+
 ## Compatibility notes
 - Sensor names/attributes are intentionally close to the original YAML package.
 - The integration keeps card compatibility while replacing template/statistics dependencies.
@@ -48,6 +52,7 @@ Intégration custom Home Assistant qui calcule une prévision locale 12h à part
 - Fournit texte de prévision, tendance, proxy de probabilité de pluie et icônes.
 - Expose des capteurs compatibles avec les anciennes cartes YAML.
 - Ajoute une configuration complète via l'interface Home Assistant (config flow + options flow).
+- Utilise une estimation pondérée de tendance température à court terme (moins de bruit qu’une extrapolation sur un seul point).
 
 ## Interface de configuration
 Obligatoire :
@@ -73,6 +78,9 @@ Autres options :
 - `sensor.local_forecast_temperature`
 - `sensor.local_forecast_pressurechange`
 - `sensor.local_forecast_temperaturechange`
+
+Les attributs du capteur principal incluent aussi :
+- `temperature_trend_slope_1h`
 
 ## Notes de compatibilité
 - Les noms/attributs des capteurs restent proches du package YAML d'origine.

@@ -4,11 +4,13 @@ from __future__ import annotations
 
 from datetime import datetime, timedelta
 from math import floor
+from typing import Sequence
 
 from .const import (
     DEFAULT_LANGUAGE,
     LANGUAGE_INDEX,
     PRESSURE_TREND_THRESHOLD,
+    TEMPERATURE_MAX_FORECAST_SLOPE_C_PER_H,
     WIND_CALM_THRESHOLD_KMH,
 )
 
@@ -688,17 +690,78 @@ def neg_zam_detail(z_number: int, is_night: bool, now: datetime) -> dict[str, ob
     )
 
 
+def estimate_temperature_slope_c_per_hour(
+    history: Sequence[tuple[datetime, float]],
+    now: datetime,
+    fallback_change_1h: float,
+) -> float:
+    """Estimate recent temperature slope using weighted segment averaging.
+
+    The estimate uses recent segments (up to ~90 minutes), weighted by recency
+    and segment duration, then blended with the legacy 1-hour delta method.
+    """
+    window = timedelta(minutes=90)
+    recent = [(ts, value) for ts, value in history if now - ts <= window]
+    if len(recent) < 2:
+        return max(
+            -TEMPERATURE_MAX_FORECAST_SLOPE_C_PER_H,
+            min(TEMPERATURE_MAX_FORECAST_SLOPE_C_PER_H, fallback_change_1h),
+        )
+
+    weighted_slope = 0.0
+    weighted_total = 0.0
+    window_seconds = window.total_seconds()
+    for index in range(1, len(recent)):
+        prev_ts, prev_value = recent[index - 1]
+        curr_ts, curr_value = recent[index]
+        segment_seconds = (curr_ts - prev_ts).total_seconds()
+        if segment_seconds <= 0:
+            continue
+
+        segment_hours = segment_seconds / 3600
+        segment_slope = (curr_value - prev_value) / segment_hours
+        midpoint = prev_ts + (curr_ts - prev_ts) / 2
+        age_seconds = max(0.0, (now - midpoint).total_seconds())
+        recency_weight = max(0.2, 1.0 - (age_seconds / window_seconds))
+        duration_weight = min(1.0, segment_seconds / 1200)
+        weight = recency_weight * duration_weight
+        weighted_slope += segment_slope * weight
+        weighted_total += weight
+
+    if weighted_total <= 0:
+        blended_slope = fallback_change_1h
+    else:
+        smoothed_slope = weighted_slope / weighted_total
+        blended_slope = (smoothed_slope * 0.7) + (fallback_change_1h * 0.3)
+
+    return max(
+        -TEMPERATURE_MAX_FORECAST_SLOPE_C_PER_H,
+        min(TEMPERATURE_MAX_FORECAST_SLOPE_C_PER_H, blended_slope),
+    )
+
+
 def short_temperature_forecast(
-    temperature_c: float,
-    temperature_change_1h: float,
+    temperature_c: float | None,
+    temperature_change_1h: float | None,
     first_minutes: float,
     second_minutes: float,
+    temperature_slope_c_per_h: float | None = None,
 ) -> tuple[float | str, int]:
     """Return ultra short-term temperature forecast and interval selector."""
+    if temperature_c is None:
+        return "unavailable", -1
+
+    fallback_slope = temperature_change_1h if temperature_change_1h is not None else 0.0
+    slope = temperature_slope_c_per_h if temperature_slope_c_per_h is not None else fallback_slope
+    slope = max(
+        -TEMPERATURE_MAX_FORECAST_SLOPE_C_PER_H,
+        min(TEMPERATURE_MAX_FORECAST_SLOPE_C_PER_H, slope),
+    )
+
     if first_minutes > 0:
-        forecast = round((temperature_change_1h / 60 * first_minutes) + temperature_c, 1)
+        forecast = round((slope / 60 * first_minutes) + temperature_c, 1)
         return forecast, 0
     if second_minutes > 0:
-        forecast = round((temperature_change_1h / 60 * second_minutes) + temperature_c, 1)
+        forecast = round((slope / 60 * second_minutes) + temperature_c, 1)
         return forecast, 1
     return "unavailable", -1

@@ -166,7 +166,6 @@ def _build_schema(defaults: dict[str, Any] | None) -> vol.Schema:
         if CONF_WIND_DIRECTION_ENTITY in defaults and defaults[CONF_WIND_DIRECTION_ENTITY]
         else vol.Optional(CONF_WIND_DIRECTION_ENTITY)
     )
-
     schema: dict[Any, Any] = {
         pressure_field: selector.EntitySelector(selector.EntitySelectorConfig(domain="sensor")),
         vol.Required(
@@ -229,7 +228,11 @@ def _clean_input(user_input: dict[str, Any]) -> dict[str, Any]:
 
     # Optional entity selectors can submit empty strings; drop them so
     # runtime code can treat the sensor as "not configured".
-    for key in (CONF_TEMPERATURE_ENTITY, CONF_WIND_SPEED_ENTITY, CONF_WIND_DIRECTION_ENTITY):
+    for key in (
+        CONF_TEMPERATURE_ENTITY,
+        CONF_WIND_SPEED_ENTITY,
+        CONF_WIND_DIRECTION_ENTITY,
+    ):
         value = clean.get(key)
         if not value:
             clean.pop(key, None)

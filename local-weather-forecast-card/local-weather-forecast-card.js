@@ -67,8 +67,9 @@ class LocalWeatherForecastCard extends HTMLElement {
     const detail = hass.states[this._config.detail_entity];
     const pressureChange = hass.states[this._config.pressure_change_entity];
 
-    const lang = Number(main?.attributes?.language ?? 1);
-    const L = this._labels(lang);
+    const langRaw = Number(main?.attributes?.language ?? 1);
+    const langIndex = Number.isInteger(langRaw) ? Math.max(0, Math.min(4, langRaw)) : 1;
+    const L = this._labels(langIndex);
 
     const title = main?.state ?? "Local Weather Forecast";
     const shortTerm = this._safeArray(main?.attributes?.forecast_short_term, []);

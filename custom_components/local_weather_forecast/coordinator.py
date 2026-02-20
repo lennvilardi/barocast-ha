@@ -29,9 +29,11 @@ from .const import (
     DEFAULT_PRESSURE_IS_SEA_LEVEL,
     DEFAULT_UPDATE_INTERVAL,
     HEMISPHERE_NORTH,
+    TEMPERATURE_STANDARD_ATMOSPHERE_C,
     TITLE_BY_LANG,
 )
 from .forecast_engine import (
+    estimate_temperature_slope_c_per_hour,
     get_language_index,
     neg_zam_detail,
     neg_zam_forecast,
@@ -60,9 +62,9 @@ class LocalWeatherForecastData:
     neg_zam_state: str
     neg_zam_attributes: dict[str, Any]
     pressure: float
-    temperature: float
+    temperature: float | None
     pressure_change: float
-    temperature_change: float
+    temperature_change: float | None
 
 
 class LocalWeatherForecastCoordinator(DataUpdateCoordinator[LocalWeatherForecastData]):
@@ -154,9 +156,11 @@ class LocalWeatherForecastCoordinator(DataUpdateCoordinator[LocalWeatherForecast
             self._state_as_float(wind_direction_entity, required=False) if wind_direction_entity else None
         )
 
-        temperature = 0.0 if temperature is None else temperature
         wind_speed = 0.0 if wind_speed is None else wind_speed
         wind_direction = 0.0 if wind_direction is None else wind_direction
+        correction_temperature = (
+            temperature if temperature is not None else TEMPERATURE_STANDARD_ATMOSPHERE_C
+        )
 
         pressure_is_sea_level = bool(self._cfg(CONF_PRESSURE_IS_SEA_LEVEL, DEFAULT_PRESSURE_IS_SEA_LEVEL))
         altitude = float(self._cfg(CONF_ALTITUDE, DEFAULT_ALTITUDE))
@@ -165,16 +169,32 @@ class LocalWeatherForecastCoordinator(DataUpdateCoordinator[LocalWeatherForecast
         p0 = (
             pressure_raw
             if pressure_is_sea_level
-            else pressure_to_sea_level(pressure_raw, temperature, altitude)
+            else pressure_to_sea_level(pressure_raw, correction_temperature, altitude)
         )
 
         now = dt_util.now()
 
         self._append_and_prune(self._pressure_history, now, p0, timedelta(hours=3))
-        self._append_and_prune(self._temperature_history, now, temperature, timedelta(hours=1))
+        if temperature is None:
+            self._temperature_history.clear()
+        else:
+            self._append_and_prune(self._temperature_history, now, temperature, timedelta(hours=2))
 
         pressure_change = self._change_from_history(self._pressure_history, p0)
-        temperature_change = self._change_from_history(self._temperature_history, temperature)
+        temperature_change = (
+            self._change_from_history(self._temperature_history, temperature)
+            if temperature is not None
+            else None
+        )
+        temperature_slope = (
+            estimate_temperature_slope_c_per_hour(
+                tuple(self._temperature_history),
+                now,
+                temperature_change if temperature_change is not None else 0.0,
+            )
+            if temperature is not None
+            else None
+        )
 
         wind_speed_flag = wind_speed_factor(wind_speed)
         wind_direction_factor = wind_factor(wind_direction)
@@ -214,13 +234,14 @@ class LocalWeatherForecastCoordinator(DataUpdateCoordinator[LocalWeatherForecast
             temperature_change,
             float(zambretti_detail_payload["first_time"][1]),
             float(zambretti_detail_payload["second_time"][1]),
+            temperature_slope,
         )
 
         trend_text, trend_code = pressure_trend_output(pressure_change, language_index)
 
         main_attributes = {
             "language": language_index,
-            "temperature": round(temperature, 1),
+            "temperature": round(temperature, 1) if temperature is not None else None,
             "p0": round(p0, 1),
             "wind_direction": [
                 wind_direction_factor,
@@ -234,7 +255,8 @@ class LocalWeatherForecastCoordinator(DataUpdateCoordinator[LocalWeatherForecast
             "forecast_pressure_trend": [trend_text, trend_code],
             "forecast_temp_short": [forecast_temp_value, forecast_temp_interval],
             "pressure_change_3h": round(pressure_change, 2),
-            "temperature_change_1h": round(temperature_change, 2),
+            "temperature_change_1h": round(temperature_change, 2) if temperature_change is not None else None,
+            "temperature_trend_slope_1h": round(temperature_slope, 2) if temperature_slope is not None else None,
         }
 
         return LocalWeatherForecastData(
@@ -245,7 +267,7 @@ class LocalWeatherForecastCoordinator(DataUpdateCoordinator[LocalWeatherForecast
             neg_zam_state=f"More details on neg_zam forecast ({neg_zam_number + 1})",
             neg_zam_attributes=neg_zam_detail_payload,
             pressure=round(p0, 1),
-            temperature=round(temperature, 1),
+            temperature=round(temperature, 1) if temperature is not None else None,
             pressure_change=round(pressure_change, 2),
-            temperature_change=round(temperature_change, 2),
+            temperature_change=round(temperature_change, 2) if temperature_change is not None else None,
         )
