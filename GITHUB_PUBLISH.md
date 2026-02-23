@@ -1,11 +1,11 @@
-# Publication GitHub + HACS (2 dépôts)
+# Publication GitHub + HACS (Intégration)
 
-Ce projet est maintenant structuré pour **2 dépôts**:
+Ce dépôt contient uniquement l’intégration HACS (`local_weather_forecast`).
 
-1. **Intégration HACS** (type `integration`)
-2. **Carte HACS Dashboard** (type `dashboard` dans l'UI HACS, `plugin` côté backend)
+Le dépôt de la carte dashboard est séparé:
+- https://github.com/lennvilardi/barocast-ha-card
 
-## 1) Dépôt intégration
+## Dépôt intégration
 
 ### Fichiers à publier
 - `custom_components/local_weather_forecast/`
@@ -42,41 +42,6 @@ gh release create v0.1.0 \
 - URL du repo
 - Type: **Integration**
 
-## 2) Dépôt carte Dashboard
-
-Le template prêt à publier se trouve dans:
-- `barocast-ha-card/`
-
-### Commandes
-```bash
-cd /Users/andrevillien/Documents/meteo/barocast-ha-card
-
-git init
-git branch -M main
-git add .
-git commit -m "feat: initial Barocast HA dashboard card"
-
-# IMPORTANT: nom de repo recommandé = barocast-ha-card
-# (le fichier JS doit matcher le nom du repo selon les règles HACS plugin/dashboard)
-
-git remote add origin git@github.com:<USER>/barocast-ha-card.git
-git push -u origin main
-
-# Recommandé: release
- git tag v0.1.0
- git push origin v0.1.0
-
-# Option GitHub Release (CLI GitHub)
-gh release create v0.1.0 \
-  --title "Barocast HA Card v0.1.0" \
-  --notes-file .github/RELEASE_TEMPLATE.en.md
-```
-
-### Ajout dans HACS
-- HACS → menu (⋮) → **Custom repositories**
-- URL du repo
-- Type: **Dashboard**
-
 ## Vérification secrets avant push
 ```bash
 cd /Users/andrevillien/Documents/meteo
@@ -89,6 +54,3 @@ Si la commande ne retourne rien, pas de secret détecté par cette passe regex.
 - Intégration:
   - `.github/RELEASE_TEMPLATE.en.md`
   - `.github/RELEASE_TEMPLATE.fr.md`
-- Carte dashboard:
-  - `barocast-ha-card/.github/RELEASE_TEMPLATE.en.md`
-  - `barocast-ha-card/.github/RELEASE_TEMPLATE.fr.md`

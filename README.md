@@ -1,14 +1,14 @@
-# Barocast HA (Local Weather Forecast)
+# Barocast HA (Local Weather Forecast Integration)
 
 Repository: `barocast-ha`
 
-Local weather forecast for Home Assistant based on pressure trend algorithms (Zambretti + Negretti/Zambra), with:
-- a HACS custom integration (`local_weather_forecast`)
-- a HACS dashboard card (`barocast-ha-card`)
+Local weather forecast for Home Assistant based on pressure trend algorithms (Zambretti + Negretti/Zambra).
 
-## Repository layout
-- `custom_components/local_weather_forecast/`: HACS integration (config flow + sensors)
-- `barocast-ha-card/`: HACS dashboard card (custom Lovelace card)
+This repository contains only the HACS custom integration:
+- `custom_components/local_weather_forecast/`
+
+Related dashboard card repository:
+- https://github.com/lennvilardi/barocast-ha-card
 
 ## Quick start (Integration)
 1. Add this repository to HACS as a **Custom repository** (type **Integration**).
@@ -30,18 +30,6 @@ Created sensors:
 - `sensor.local_forecast_pressurechange`
 - `sensor.local_forecast_temperaturechange`
 
-## Quick start (Dashboard card)
-Use the dedicated folder/repo `barocast-ha-card/` in HACS as **Dashboard**.
-
-Example Lovelace config:
-
-```yaml
-type: custom:barocast-ha-card
-entity: sensor.local_forecast
-detail_entity: sensor.local_forecast_zambretti_detail
-pressure_change_entity: sensor.local_forecast_pressurechange
-```
-
 ## Algorithm references
 - https://github.com/sassoftware/iot-zambretti-weather-forcasting
 - https://integritext.net/DrKFS/zambretti.htm
@@ -50,19 +38,19 @@ pressure_change_entity: sensor.local_forecast_pressurechange
 
 ## Development notes
 - Validation workflows are included for HACS + hassfest + gitleaks.
-- `GITHUB_PUBLISH.md` contains step-by-step publication instructions for two separate GitHub repositories.
+- `GITHUB_PUBLISH.md` contains publication instructions for this integration repository.
 
 ---
 
 # Version Française
 
-Prévision météo locale pour Home Assistant basée sur les tendances de pression (Zambretti + Negretti/Zambra), avec :
-- une intégration HACS (`local_weather_forecast`)
-- une carte dashboard HACS (`barocast-ha-card`)
+Prévision météo locale pour Home Assistant basée sur les tendances de pression (Zambretti + Negretti/Zambra).
 
-## Structure du dépôt
-- `custom_components/local_weather_forecast/` : intégration HACS (config flow + capteurs)
-- `barocast-ha-card/` : carte dashboard HACS (carte Lovelace custom)
+Ce dépôt contient uniquement l’intégration HACS :
+- `custom_components/local_weather_forecast/`
+
+Dépôt de la carte dashboard associé :
+- https://github.com/lennvilardi/barocast-ha-card
 
 ## Démarrage rapide (Intégration)
 1. Ajoute ce dépôt dans HACS en **Custom repository** (type **Integration**).
@@ -84,18 +72,6 @@ Capteurs créés :
 - `sensor.local_forecast_pressurechange`
 - `sensor.local_forecast_temperaturechange`
 
-## Démarrage rapide (Carte dashboard)
-Utilise le dossier/repo dédié `barocast-ha-card/` dans HACS en type **Dashboard**.
-
-Exemple Lovelace :
-
-```yaml
-type: custom:barocast-ha-card
-entity: sensor.local_forecast
-detail_entity: sensor.local_forecast_zambretti_detail
-pressure_change_entity: sensor.local_forecast_pressurechange
-```
-
 ## Références algorithmiques
 - https://github.com/sassoftware/iot-zambretti-weather-forcasting
 - https://integritext.net/DrKFS/zambretti.htm
@@ -104,4 +80,4 @@ pressure_change_entity: sensor.local_forecast_pressurechange
 
 ## Notes de développement
 - Workflows de validation inclus : HACS + hassfest + gitleaks.
-- `GITHUB_PUBLISH.md` contient la procédure de publication GitHub (2 dépôts séparés).
+- `GITHUB_PUBLISH.md` contient la procédure de publication pour ce dépôt d’intégration.
