@@ -4,7 +4,7 @@ A Home Assistant custom integration that computes a 12-hour local forecast from 
 
 ## Domain
 - Current domain: `barocast_ha`
-- Previous domain: `local_weather_forecast` (breaking rename)
+- Legacy domain removed in `v0.2.0` (breaking rename)
 
 ## What it does
 - Implements Zambretti + Negretti/Zambra pressure-based forecast models.
@@ -54,7 +54,7 @@ Intégration custom Home Assistant qui calcule une prévision locale 12h à part
 
 ## Domain
 - Domain actuel : `barocast_ha`
-- Ancien domain : `local_weather_forecast` (renommage majeur)
+- Ancien domain retiré en `v0.2.0` (renommage majeur)
 
 ## Ce que fait l'intégration
 - Implémente les modèles de prévision basés sur la pression : Zambretti + Negretti/Zambra.

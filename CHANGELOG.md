@@ -4,18 +4,18 @@ All notable changes to this project will be documented in this file.
 
 ## [0.2.0] - 2026-02-23
 ### Changed
-- Breaking: integration domain renamed from `local_weather_forecast` to `barocast_ha`.
+- Breaking: integration domain renamed to `barocast_ha` (legacy domain removed).
 - Integration folder renamed to `custom_components/barocast_ha`.
 - Integration display name harmonized to **Barocast HA** across manifest, config flow and docs.
 
 ### Migration
-- Remove the existing `local_weather_forecast` integration entry in Home Assistant.
+- Remove the existing legacy integration entry in Home Assistant.
 - Install/update this release and add the integration again as **Barocast HA**.
 - Sensor entity names remain `sensor.local_forecast*` for card/dashboard compatibility.
 
 ## [0.1.0] - 2026-02-20
 ### Added
-- First HACS custom integration version under `custom_components/local_weather_forecast`.
+- First HACS custom integration version under `custom_components/barocast_ha`.
 - Home Assistant config flow (language, pressure/temperature/wind entities, altitude, hemisphere, update interval).
 - Forecast engine implementation for Zambretti + Negretti/Zambra.
 - Sensors compatible with legacy card attributes.
@@ -40,18 +40,18 @@ Toutes les modifications notables de ce projet sont documentées dans ce fichier
 
 ## [0.2.0] - 2026-02-23
 ### Modifications
-- Changement majeur : domain d’intégration renommé de `local_weather_forecast` vers `barocast_ha`.
+- Changement majeur : domain d’intégration renommé vers `barocast_ha` (ancien domain supprimé).
 - Dossier d’intégration renommé en `custom_components/barocast_ha`.
 - Nom d’affichage harmonisé en **Barocast HA** dans le manifest, le config flow et la documentation.
 
 ### Migration
-- Supprimer l’entrée d’intégration `local_weather_forecast` existante dans Home Assistant.
+- Supprimer l’entrée d’intégration legacy existante dans Home Assistant.
 - Installer/mettre à jour cette version puis ajouter à nouveau l’intégration sous **Barocast HA**.
 - Les noms d’entités capteurs restent `sensor.local_forecast*` pour préserver la compatibilité dashboard/carte.
 
 ## [0.1.0] - 2026-02-20
 ### Ajouts
-- Première version de l’intégration custom HACS dans `custom_components/local_weather_forecast`.
+- Première version de l’intégration custom HACS dans `custom_components/barocast_ha`.
 - Config flow Home Assistant (langue, entités pression/température/vent, altitude, hémisphère, intervalle).
 - Implémentation du moteur de prévision Zambretti + Negretti/Zambra.
 - Capteurs compatibles avec les attributs des cartes legacy.
