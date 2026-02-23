@@ -1,18 +1,23 @@
-# Barocast HA (Local Weather Forecast Integration)
+# Barocast HA (HACS Integration)
 
 Repository: `barocast-ha`
 
 Local weather forecast for Home Assistant based on pressure trend algorithms (Zambretti + Negretti/Zambra).
 
 This repository contains only the HACS custom integration:
-- `custom_components/local_weather_forecast/`
+- `custom_components/barocast_ha/`
+
+## Breaking change (domain rename)
+- Integration domain has been renamed from `local_weather_forecast` to `barocast_ha`.
+- Existing installations must remove the old integration entry and add **Barocast HA** again.
+- Sensor names remain `sensor.local_forecast*` to keep dashboard/card compatibility.
 
 Related dashboard card repository:
 - https://github.com/lennvilardi/barocast-ha-card
 
 ## Quick start (Integration)
 1. Add this repository to HACS as a **Custom repository** (type **Integration**).
-2. Install **Local Weather Forecast**.
+2. Install **Barocast HA**.
 3. Restart Home Assistant.
 4. Go to `Settings > Devices & Services > Add Integration`.
 5. Configure:
@@ -47,14 +52,19 @@ Created sensors:
 Prévision météo locale pour Home Assistant basée sur les tendances de pression (Zambretti + Negretti/Zambra).
 
 Ce dépôt contient uniquement l’intégration HACS :
-- `custom_components/local_weather_forecast/`
+- `custom_components/barocast_ha/`
+
+## Changement majeur (renommage du domain)
+- Le domain d’intégration est renommé de `local_weather_forecast` vers `barocast_ha`.
+- Les installations existantes doivent supprimer l’ancienne entrée puis ajouter **Barocast HA**.
+- Les noms de capteurs restent `sensor.local_forecast*` pour conserver la compatibilité dashboard/carte.
 
 Dépôt de la carte dashboard associé :
 - https://github.com/lennvilardi/barocast-ha-card
 
 ## Démarrage rapide (Intégration)
 1. Ajoute ce dépôt dans HACS en **Custom repository** (type **Integration**).
-2. Installe **Local Weather Forecast**.
+2. Installe **Barocast HA**.
 3. Redémarre Home Assistant.
 4. Va dans `Paramètres > Appareils et services > Ajouter une intégration`.
 5. Configure :

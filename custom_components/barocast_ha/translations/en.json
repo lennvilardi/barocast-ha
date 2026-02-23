@@ -1,9 +1,8 @@
 {
-  "title": "Local Weather Forecast",
   "config": {
     "step": {
       "user": {
-        "title": "Configure local weather forecast",
+        "title": "Configure Barocast HA",
         "description": "Choose language and source sensors.",
         "data": {
           "pressure_entity": "Pressure sensor (required)",
@@ -29,7 +28,7 @@
   "options": {
     "step": {
       "init": {
-        "title": "Update local weather forecast",
+        "title": "Update Barocast HA",
         "description": "Adjust language and source sensors.",
         "data": {
           "pressure_entity": "Pressure sensor (required)",

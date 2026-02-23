@@ -1,4 +1,4 @@
-"""Sensor platform for Local Weather Forecast integration."""
+"""Sensor platform for Barocast HA integration."""
 
 from __future__ import annotations
 
@@ -14,57 +14,57 @@ from homeassistant.helpers.entity_platform import AddEntitiesCallback
 from homeassistant.helpers.update_coordinator import CoordinatorEntity
 
 from .const import DOMAIN
-from .coordinator import LocalWeatherForecastCoordinator, LocalWeatherForecastData
+from .coordinator import BarocastHACoordinator, BarocastHAData
 
 
 @dataclass(frozen=True, kw_only=True)
-class LocalForecastSensorDescription(SensorEntityDescription):
-    """Describes Local Weather Forecast sensor entities."""
+class BarocastSensorDescription(SensorEntityDescription):
+    """Describes Barocast HA sensor entities."""
 
     data_key: str
 
 
-SENSOR_DESCRIPTIONS: tuple[LocalForecastSensorDescription, ...] = (
-    LocalForecastSensorDescription(
+SENSOR_DESCRIPTIONS: tuple[BarocastSensorDescription, ...] = (
+    BarocastSensorDescription(
         key="main",
         name="Local forecast",
         data_key="main",
         icon="mdi:weather-cloudy-clock",
     ),
-    LocalForecastSensorDescription(
+    BarocastSensorDescription(
         key="zambretti_detail",
         name="Local forecast zambretti detail",
         data_key="zambretti_detail",
         icon="mdi:weather-partly-rainy",
     ),
-    LocalForecastSensorDescription(
+    BarocastSensorDescription(
         key="neg_zam_detail",
         name="Local forecast neg_zam detail",
         data_key="neg_zam_detail",
         icon="mdi:weather-partly-snowy-rainy",
     ),
-    LocalForecastSensorDescription(
+    BarocastSensorDescription(
         key="pressure",
         name="Local forecast pressure",
         data_key="pressure",
         device_class=SensorDeviceClass.ATMOSPHERIC_PRESSURE,
         native_unit_of_measurement=UnitOfPressure.HPA,
     ),
-    LocalForecastSensorDescription(
+    BarocastSensorDescription(
         key="temperature",
         name="Local forecast temperature",
         data_key="temperature",
         device_class=SensorDeviceClass.TEMPERATURE,
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
     ),
-    LocalForecastSensorDescription(
+    BarocastSensorDescription(
         key="pressure_change",
         name="Local forecast pressurechange",
         data_key="pressure_change",
         native_unit_of_measurement=UnitOfPressure.HPA,
         icon="mdi:chart-line",
     ),
-    LocalForecastSensorDescription(
+    BarocastSensorDescription(
         key="temperature_change",
         name="Local forecast temperaturechange",
         data_key="temperature_change",
@@ -79,25 +79,25 @@ async def async_setup_entry(
     entry: ConfigEntry,
     async_add_entities: AddEntitiesCallback,
 ) -> None:
-    """Set up Local Weather Forecast sensors."""
-    coordinator: LocalWeatherForecastCoordinator = entry.runtime_data
+    """Set up Barocast HA sensors."""
+    coordinator: BarocastHACoordinator = entry.runtime_data
 
     async_add_entities(
-        LocalForecastSensor(coordinator, entry, description) for description in SENSOR_DESCRIPTIONS
+        BarocastSensor(coordinator, entry, description) for description in SENSOR_DESCRIPTIONS
     )
 
 
-class LocalForecastSensor(CoordinatorEntity[LocalWeatherForecastCoordinator], SensorEntity):
-    """Representation of a Local Weather Forecast sensor."""
+class BarocastSensor(CoordinatorEntity[BarocastHACoordinator], SensorEntity):
+    """Representation of a Barocast HA sensor."""
 
-    entity_description: LocalForecastSensorDescription
+    entity_description: BarocastSensorDescription
     _attr_has_entity_name = True
 
     def __init__(
         self,
-        coordinator: LocalWeatherForecastCoordinator,
+        coordinator: BarocastHACoordinator,
         entry: ConfigEntry,
-        description: LocalForecastSensorDescription,
+        description: BarocastSensorDescription,
     ) -> None:
         """Initialize the entity."""
         super().__init__(coordinator)
@@ -105,7 +105,7 @@ class LocalForecastSensor(CoordinatorEntity[LocalWeatherForecastCoordinator], Se
         self._attr_unique_id = f"{entry.entry_id}_{description.key}"
         self._attr_device_info = DeviceInfo(
             identifiers={(DOMAIN, entry.entry_id)},
-            name="Local Weather Forecast",
+            name="Barocast HA",
             manufacturer="Community",
             model="Zambretti/Negretti",
         )
@@ -136,7 +136,7 @@ class LocalForecastSensor(CoordinatorEntity[LocalWeatherForecastCoordinator], Se
     @property
     def extra_state_attributes(self) -> dict[str, Any] | None:
         """Return state attributes."""
-        data: LocalWeatherForecastData | None = self.coordinator.data
+        data: BarocastHAData | None = self.coordinator.data
         if data is None:
             return None
 

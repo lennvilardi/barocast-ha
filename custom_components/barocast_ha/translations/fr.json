@@ -2,7 +2,7 @@
   "config": {
     "step": {
       "user": {
-        "title": "Configurer la prévision météo locale",
+        "title": "Configurer Barocast HA",
         "description": "Choisissez la langue et les capteurs source.",
         "data": {
           "pressure_entity": "Capteur de pression (obligatoire)",
@@ -28,7 +28,7 @@
   "options": {
     "step": {
       "init": {
-        "title": "Mettre à jour la prévision météo locale",
+        "title": "Mettre à jour Barocast HA",
         "description": "Ajustez la langue et les capteurs source.",
         "data": {
           "pressure_entity": "Capteur de pression (obligatoire)",

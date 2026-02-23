@@ -1,10 +1,10 @@
-"""Constants for Local Weather Forecast integration."""
+"""Constants for Barocast HA integration."""
 
 from __future__ import annotations
 
 from datetime import timedelta
 
-DOMAIN = "local_weather_forecast"
+DOMAIN = "barocast_ha"
 
 CONF_LANGUAGE = "language"
 CONF_PRESSURE_ENTITY = "pressure_entity"
@@ -41,7 +41,7 @@ TEMPERATURE_MAX_FORECAST_SLOPE_C_PER_H = 4.0
 
 TITLE_BY_LANG = {
     LANG_DE: "Lokale Wettervorhersage",
-    LANG_EN: "12hr Local Weather Forecast",
+    LANG_EN: "12hr Barocast HA",
     LANG_EL: "Τοπική πρόγνωση καιρού",
     LANG_IT: "Previsioni meteorologiche locali",
     LANG_FR: "Prévisions météorologiques locales",

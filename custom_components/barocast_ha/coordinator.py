@@ -1,4 +1,4 @@
-"""Coordinator for Local Weather Forecast integration."""
+"""Coordinator for Barocast HA integration."""
 
 from __future__ import annotations
 
@@ -52,7 +52,7 @@ LOGGER = logging.getLogger(__name__)
 
 
 @dataclass(slots=True)
-class LocalWeatherForecastData:
+class BarocastHAData:
     """Runtime forecast snapshot used by entities."""
 
     main_state: str
@@ -67,7 +67,7 @@ class LocalWeatherForecastData:
     temperature_change: float | None
 
 
-class LocalWeatherForecastCoordinator(DataUpdateCoordinator[LocalWeatherForecastData]):
+class BarocastHACoordinator(DataUpdateCoordinator[BarocastHAData]):
     """Handle periodic forecast updates."""
 
     config_entry: ConfigEntry
@@ -82,7 +82,7 @@ class LocalWeatherForecastCoordinator(DataUpdateCoordinator[LocalWeatherForecast
         super().__init__(
             hass,
             logger=LOGGER,
-            name="Local Weather Forecast",
+            name="Barocast HA",
             update_interval=self._update_interval,
         )
 
@@ -134,7 +134,7 @@ class LocalWeatherForecastCoordinator(DataUpdateCoordinator[LocalWeatherForecast
             return 0.0
         return current - history[0][1]
 
-    async def _async_update_data(self) -> LocalWeatherForecastData:
+    async def _async_update_data(self) -> BarocastHAData:
         """Fetch and calculate forecast data."""
         pressure_entity = self._cfg(CONF_PRESSURE_ENTITY)
         if not pressure_entity:
@@ -259,7 +259,7 @@ class LocalWeatherForecastCoordinator(DataUpdateCoordinator[LocalWeatherForecast
             "temperature_trend_slope_1h": round(temperature_slope, 2) if temperature_slope is not None else None,
         }
 
-        return LocalWeatherForecastData(
+        return BarocastHAData(
             main_state=TITLE_BY_LANG.get(language, TITLE_BY_LANG[DEFAULT_LANGUAGE]),
             main_attributes=main_attributes,
             zambretti_state=f"More details on zambretti forecast ({zambretti_type + 1})",

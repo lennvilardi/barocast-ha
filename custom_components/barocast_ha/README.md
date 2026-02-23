@@ -1,6 +1,10 @@
-# Local Weather Forecast (HACS Integration)
+# Barocast HA (HACS Integration)
 
 A Home Assistant custom integration that computes a 12-hour local forecast from local sensors.
+
+## Domain
+- Current domain: `barocast_ha`
+- Previous domain: `local_weather_forecast` (breaking rename)
 
 ## What it does
 - Implements Zambretti + Negretti/Zambra pressure-based forecast models.
@@ -40,12 +44,17 @@ Main sensor extra attributes also include:
 ## Compatibility notes
 - Sensor names/attributes are intentionally close to the original YAML package.
 - The integration keeps card compatibility while replacing template/statistics dependencies.
+- Sensor entity names remain `sensor.local_forecast*` for backward card/dashboard compatibility.
 
 ---
 
 # Version Française
 
 Intégration custom Home Assistant qui calcule une prévision locale 12h à partir de capteurs locaux.
+
+## Domain
+- Domain actuel : `barocast_ha`
+- Ancien domain : `local_weather_forecast` (renommage majeur)
 
 ## Ce que fait l'intégration
 - Implémente les modèles de prévision basés sur la pression : Zambretti + Negretti/Zambra.
@@ -85,3 +94,4 @@ Les attributs du capteur principal incluent aussi :
 ## Notes de compatibilité
 - Les noms/attributs des capteurs restent proches du package YAML d'origine.
 - L'intégration conserve la compatibilité des cartes tout en supprimant la dépendance aux templates/statistics YAML.
+- Les noms d’entités capteurs restent `sensor.local_forecast*` pour conserver la compatibilité dashboard/carte.

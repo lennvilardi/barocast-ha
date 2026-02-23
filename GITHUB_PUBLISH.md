@@ -1,6 +1,6 @@
 # Publication GitHub + HACS (Intégration)
 
-Ce dépôt contient uniquement l’intégration HACS (`local_weather_forecast`).
+Ce dépôt contient uniquement l’intégration HACS (`barocast_ha`).
 
 Le dépôt de la carte dashboard est séparé:
 - https://github.com/lennvilardi/barocast-ha-card
@@ -8,7 +8,7 @@ Le dépôt de la carte dashboard est séparé:
 ## Dépôt intégration
 
 ### Fichiers à publier
-- `custom_components/local_weather_forecast/`
+- `custom_components/barocast_ha/`
 - `.github/workflows/validate.yml`
 - `hacs.json`
 - `README.md`
@@ -21,19 +21,19 @@ cd /Users/andrevillien/Documents/meteo
 git init
 git branch -M main
 git add custom_components .github/workflows/validate.yml hacs.json README.md LICENSE
-git commit -m "feat: initial Local Weather Forecast HACS integration"
+git commit -m "feat: initial Barocast HA HACS integration"
 
 # Remplace <USER> (repo recommandé: barocast-ha)
 git remote add origin git@github.com:<USER>/barocast-ha.git
 git push -u origin main
 
 # Recommandé: release
- git tag v0.1.0
- git push origin v0.1.0
+ git tag v0.2.0
+ git push origin v0.2.0
 
 # Option GitHub Release (CLI GitHub)
-gh release create v0.1.0 \
-  --title "Local Weather Forecast v0.1.0" \
+gh release create v0.2.0 \
+  --title "Barocast HA v0.2.0" \
   --notes-file .github/RELEASE_TEMPLATE.en.md
 ```
 

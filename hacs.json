@@ -1,9 +1,9 @@
 {
-  "name": "Local Weather Forecast",
+  "name": "Barocast HA",
   "render_readme": true,
   "content_in_root": false,
   "domains": [
-    "local_weather_forecast"
+    "barocast_ha"
   ],
   "homeassistant": "2024.6.0"
 }

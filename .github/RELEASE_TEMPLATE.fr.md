@@ -1,7 +1,7 @@
 ## Release {{VERSION}}
 
 ### Points clés
-- Version stable de l’intégration HACS Local Weather Forecast.
+- Version stable de l’intégration HACS Barocast HA.
 - Configuration via l’interface Home Assistant (config flow).
 - Améliorations du moteur de prévision et corrections de bugs.
 
@@ -12,8 +12,9 @@
 
 ### Notes de mise à jour
 - Redémarrer Home Assistant après mise à jour.
+- Changement majeur : domain renommé de `local_weather_forecast` vers `barocast_ha`.
 - Vérifier les options de l’intégration si les entités capteurs ont changé.
 
 ### Liens
-- Documentation intégration : `custom_components/local_weather_forecast/README.md`
+- Documentation intégration : `custom_components/barocast_ha/README.md`
 - Changelog complet : `CHANGELOG.md`

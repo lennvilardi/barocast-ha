@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.2.0] - 2026-02-23
+### Changed
+- Breaking: integration domain renamed from `local_weather_forecast` to `barocast_ha`.
+- Integration folder renamed to `custom_components/barocast_ha`.
+- Integration display name harmonized to **Barocast HA** across manifest, config flow and docs.
+
+### Migration
+- Remove the existing `local_weather_forecast` integration entry in Home Assistant.
+- Install/update this release and add the integration again as **Barocast HA**.
+- Sensor entity names remain `sensor.local_forecast*` for card/dashboard compatibility.
+
 ## [0.1.0] - 2026-02-20
 ### Added
 - First HACS custom integration version under `custom_components/local_weather_forecast`.
@@ -26,6 +37,17 @@ All notable changes to this project will be documented in this file.
 # Journal des changements
 
 Toutes les modifications notables de ce projet sont documentées dans ce fichier.
+
+## [0.2.0] - 2026-02-23
+### Modifications
+- Changement majeur : domain d’intégration renommé de `local_weather_forecast` vers `barocast_ha`.
+- Dossier d’intégration renommé en `custom_components/barocast_ha`.
+- Nom d’affichage harmonisé en **Barocast HA** dans le manifest, le config flow et la documentation.
+
+### Migration
+- Supprimer l’entrée d’intégration `local_weather_forecast` existante dans Home Assistant.
+- Installer/mettre à jour cette version puis ajouter à nouveau l’intégration sous **Barocast HA**.
+- Les noms d’entités capteurs restent `sensor.local_forecast*` pour préserver la compatibilité dashboard/carte.
 
 ## [0.1.0] - 2026-02-20
 ### Ajouts

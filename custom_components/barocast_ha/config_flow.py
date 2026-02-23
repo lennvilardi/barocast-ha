@@ -1,4 +1,4 @@
-"""Config flow for Local Weather Forecast integration."""
+"""Config flow for Barocast HA integration."""
 
 from __future__ import annotations
 
@@ -47,15 +47,15 @@ HEMISPHERE_OPTIONS = [
 ]
 
 
-class LocalWeatherForecastConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
-    """Handle a config flow for Local Weather Forecast."""
+class BarocastHAConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
+    """Handle a config flow for Barocast HA."""
 
     VERSION = 1
 
     @staticmethod
     def async_get_options_flow(config_entry: config_entries.ConfigEntry) -> config_entries.OptionsFlow:
         """Return the options flow handler."""
-        return LocalWeatherForecastOptionsFlow(config_entry)
+        return BarocastHAOptionsFlow(config_entry)
 
     async def async_step_user(self, user_input: dict[str, Any] | None = None) -> config_entries.ConfigFlowResult:
         """Handle first step."""
@@ -70,7 +70,7 @@ class LocalWeatherForecastConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
             if not errors:
                 await self.async_set_unique_id(f"{DOMAIN}_{clean_input[CONF_PRESSURE_ENTITY]}")
                 self._abort_if_unique_id_configured()
-                return self.async_create_entry(title="Local Weather Forecast", data=clean_input)
+                return self.async_create_entry(title="Barocast HA", data=clean_input)
 
         return self.async_show_form(
             step_id="user",
@@ -115,8 +115,8 @@ class LocalWeatherForecastConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
         return True
 
 
-class LocalWeatherForecastOptionsFlow(config_entries.OptionsFlow):
-    """Handle Local Weather Forecast options."""
+class BarocastHAOptionsFlow(config_entries.OptionsFlow):
+    """Handle Barocast HA options."""
 
     def __init__(self, config_entry: config_entries.ConfigEntry) -> None:
         """Initialize options flow."""

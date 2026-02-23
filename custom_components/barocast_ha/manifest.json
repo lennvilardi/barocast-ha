@@ -1,7 +1,7 @@
 {
-  "domain": "local_weather_forecast",
-  "name": "Local Weather Forecast",
-  "version": "0.1.0",
+  "domain": "barocast_ha",
+  "name": "Barocast HA",
+  "version": "0.2.0",
   "documentation": "https://github.com/lennvilardi/barocast-ha",
   "issue_tracker": "https://github.com/lennvilardi/barocast-ha/issues",
   "codeowners": [

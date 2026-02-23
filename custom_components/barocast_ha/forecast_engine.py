@@ -1,4 +1,4 @@
-"""Forecast calculation engine for Local Weather Forecast."""
+"""Forecast calculation engine for Barocast HA."""
 
 from __future__ import annotations
 
