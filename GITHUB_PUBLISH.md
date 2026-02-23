@@ -23,8 +23,8 @@ git branch -M main
 git add custom_components .github/workflows/validate.yml hacs.json README.md LICENSE
 git commit -m "feat: initial Local Weather Forecast HACS integration"
 
-# Remplace <USER> et <REPO>
-git remote add origin git@github.com:<USER>/<REPO>.git
+# Remplace <USER> (repo recommandé: barocast-ha)
+git remote add origin git@github.com:<USER>/barocast-ha.git
 git push -u origin main
 
 # Recommandé: release

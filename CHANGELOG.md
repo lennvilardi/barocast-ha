@@ -19,6 +19,7 @@ All notable changes to this project will be documented in this file.
 - Seasonal correction now honors configured hemisphere for both Zambretti and Negretti/Zambra paths.
 - Temperature forecast now uses a weighted slope estimate and slope clamp to reduce spikes/noise.
 - Pressure sea-level correction now uses a standard atmosphere fallback temperature when no temperature sensor is configured.
+- Removed obsolete legacy YAML package/card files from the repository root.
 
 ---
 
@@ -43,3 +44,4 @@ Toutes les modifications notables de ce projet sont documentées dans ce fichier
 - La correction saisonnière respecte désormais l’hémisphère configuré pour les chemins Zambretti et Negretti/Zambra.
 - La prévision température utilise désormais une estimation de pente pondérée avec plafonnement pour réduire pics/bruit.
 - La correction de pression au niveau de la mer utilise une température standard de repli quand aucun capteur de température n’est configuré.
+- Suppression des fichiers package/cartes YAML legacy obsolètes à la racine du dépôt.

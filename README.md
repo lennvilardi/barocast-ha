@@ -1,4 +1,6 @@
-# Local Weather Forecast for Home Assistant
+# Barocast HA (Local Weather Forecast)
+
+Repository: `barocast-ha`
 
 Local weather forecast for Home Assistant based on pressure trend algorithms (Zambretti + Negretti/Zambra), with:
 - a HACS custom integration (`local_weather_forecast`)
@@ -7,8 +9,6 @@ Local weather forecast for Home Assistant based on pressure trend algorithms (Za
 ## Repository layout
 - `custom_components/local_weather_forecast/`: HACS integration (config flow + sensors)
 - `local-weather-forecast-card/`: HACS dashboard card (custom Lovelace card)
-- `weather_forecast.yaml`: legacy YAML package version
-- `weather_card_*.yaml`: legacy card YAML snippets
 
 ## Quick start (Integration)
 1. Add this repository to HACS as a **Custom repository** (type **Integration**).
@@ -63,8 +63,6 @@ Prévision météo locale pour Home Assistant basée sur les tendances de pressi
 ## Structure du dépôt
 - `custom_components/local_weather_forecast/` : intégration HACS (config flow + capteurs)
 - `local-weather-forecast-card/` : carte dashboard HACS (carte Lovelace custom)
-- `weather_forecast.yaml` : version historique en package YAML
-- `weather_card_*.yaml` : snippets historiques de carte YAML
 
 ## Démarrage rapide (Intégration)
 1. Ajoute ce dépôt dans HACS en **Custom repository** (type **Integration**).
