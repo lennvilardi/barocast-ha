@@ -54,3 +54,7 @@ Si la commande ne retourne rien, pas de secret détecté par cette passe regex.
 - Intégration:
   - `.github/RELEASE_TEMPLATE.en.md`
   - `.github/RELEASE_TEMPLATE.fr.md`
+
+## Référentiel carte (repo séparé)
+- Repo: `https://github.com/lennvilardi/barocast-ha-card`
+- Release actuelle alignée: `v0.1.0`

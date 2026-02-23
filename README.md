@@ -7,6 +7,11 @@ Local weather forecast for Home Assistant based on pressure trend algorithms (Za
 This repository contains only the HACS custom integration:
 - `custom_components/barocast_ha/`
 
+## Repository alignment (2 repos)
+- Integration repo: `barocast-ha` (this folder), latest release: `v0.1.1`
+- Dashboard card repo: `barocast-ha-card` (separate repo), latest release: `v0.1.0`
+- Card repository URL: https://github.com/lennvilardi/barocast-ha-card
+
 ## Breaking change (domain rename)
 - Integration domain is now `barocast_ha`.
 - Existing installations must remove the old integration entry and add **Barocast HA** again.
@@ -54,6 +59,11 @@ Prévision météo locale pour Home Assistant basée sur les tendances de pressi
 
 Ce dépôt contient uniquement l’intégration HACS :
 - `custom_components/barocast_ha/`
+
+## Alignement (2 repos)
+- Repo intégration : `barocast-ha` (ce dossier), dernière release : `v0.1.1`
+- Repo carte dashboard : `barocast-ha-card` (repo séparé), dernière release : `v0.1.0`
+- URL du repo carte : https://github.com/lennvilardi/barocast-ha-card
 
 ## Changement majeur (renommage du domain)
 - Le domain d’intégration est désormais `barocast_ha`.
