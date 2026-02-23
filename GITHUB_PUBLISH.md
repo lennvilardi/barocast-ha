@@ -28,12 +28,12 @@ git remote add origin git@github.com:<USER>/barocast-ha.git
 git push -u origin main
 
 # Recommandé: release
- git tag v0.3.0
- git push origin v0.3.0
+ git tag v0.1.1
+ git push origin v0.1.1
 
 # Option GitHub Release (CLI GitHub)
-gh release create v0.3.0 \
-  --title "Barocast HA v0.3.0" \
+gh release create v0.1.1 \
+  --title "Barocast HA v0.1.1" \
   --notes-file .github/RELEASE_TEMPLATE.en.md
 ```
 

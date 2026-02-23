@@ -2,14 +2,19 @@
 
 All notable changes to this project will be documented in this file.
 
-## [0.3.0] - 2026-02-23
+## [0.1.1] - 2026-02-23
 ### Changed
+- Breaking: integration domain renamed to `barocast_ha` (legacy domain removed).
 - Breaking: all sensor entity IDs were renamed to the `sensor.barocast_forecast*` namespace.
+- Integration folder renamed to `custom_components/barocast_ha`.
+- Integration display name harmonized to **Barocast HA** across manifest, config flow and docs.
 - Updated examples and documentation to use the new sensor IDs.
 
 ### Migration
-- Update dashboard cards/automations that reference old `sensor.local_forecast*` entities.
+- Remove the existing legacy integration entry in Home Assistant.
+- Install/update this release and add the integration again as **Barocast HA**.
 - Existing entities are auto-migrated to new IDs when possible.
+- Update dashboard cards/automations that reference old `sensor.local_forecast*` entities.
 - Use the new entity IDs:
   - `sensor.barocast_forecast`
   - `sensor.barocast_forecast_zambretti_detail`
@@ -18,17 +23,6 @@ All notable changes to this project will be documented in this file.
   - `sensor.barocast_forecast_temperature`
   - `sensor.barocast_forecast_pressure_change`
   - `sensor.barocast_forecast_temperature_change`
-
-## [0.2.0] - 2026-02-23
-### Changed
-- Breaking: integration domain renamed to `barocast_ha` (legacy domain removed).
-- Integration folder renamed to `custom_components/barocast_ha`.
-- Integration display name harmonized to **Barocast HA** across manifest, config flow and docs.
-
-### Migration
-- Remove the existing legacy integration entry in Home Assistant.
-- Install/update this release and add the integration again as **Barocast HA**.
-- Sensor entity IDs are now `sensor.barocast_forecast*`.
 
 ## [0.1.0] - 2026-02-20
 ### Added
@@ -55,14 +49,19 @@ All notable changes to this project will be documented in this file.
 
 Toutes les modifications notables de ce projet sont documentées dans ce fichier.
 
-## [0.3.0] - 2026-02-23
+## [0.1.1] - 2026-02-23
 ### Modifications
+- Changement majeur : domain d’intégration renommé vers `barocast_ha` (ancien domain supprimé).
 - Changement majeur : tous les IDs d’entités capteurs sont renommés vers l’espace `sensor.barocast_forecast*`.
+- Dossier d’intégration renommé en `custom_components/barocast_ha`.
+- Nom d’affichage harmonisé en **Barocast HA** dans le manifest, le config flow et la documentation.
 - Exemples et documentation mis à jour avec les nouveaux IDs.
 
 ### Migration
-- Mettre à jour les cartes/automatisations qui référencent les anciennes entités `sensor.local_forecast*`.
+- Supprimer l’entrée d’intégration legacy existante dans Home Assistant.
+- Installer/mettre à jour cette version puis ajouter à nouveau l’intégration sous **Barocast HA**.
 - Les entités existantes sont migrées automatiquement vers les nouveaux IDs lorsque possible.
+- Mettre à jour les cartes/automatisations qui référencent les anciennes entités `sensor.local_forecast*`.
 - Utiliser les nouveaux IDs :
   - `sensor.barocast_forecast`
   - `sensor.barocast_forecast_zambretti_detail`
@@ -71,17 +70,6 @@ Toutes les modifications notables de ce projet sont documentées dans ce fichier
   - `sensor.barocast_forecast_temperature`
   - `sensor.barocast_forecast_pressure_change`
   - `sensor.barocast_forecast_temperature_change`
-
-## [0.2.0] - 2026-02-23
-### Modifications
-- Changement majeur : domain d’intégration renommé vers `barocast_ha` (ancien domain supprimé).
-- Dossier d’intégration renommé en `custom_components/barocast_ha`.
-- Nom d’affichage harmonisé en **Barocast HA** dans le manifest, le config flow et la documentation.
-
-### Migration
-- Supprimer l’entrée d’intégration legacy existante dans Home Assistant.
-- Installer/mettre à jour cette version puis ajouter à nouveau l’intégration sous **Barocast HA**.
-- Les IDs d’entités capteurs sont désormais `sensor.barocast_forecast*`.
 
 ## [0.1.0] - 2026-02-20
 ### Ajouts
