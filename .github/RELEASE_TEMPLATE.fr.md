@@ -13,6 +13,7 @@
 ### Notes de mise à jour
 - Redémarrer Home Assistant après mise à jour.
 - Changement majeur : domain renommé de `local_weather_forecast` vers `barocast_ha`.
+- Changement majeur : IDs capteurs renommés de `sensor.local_forecast*` vers `sensor.barocast_forecast*`.
 - Vérifier les options de l’intégration si les entités capteurs ont changé.
 
 ### Liens

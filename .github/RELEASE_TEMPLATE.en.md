@@ -13,6 +13,7 @@
 ### Upgrade notes
 - Restart Home Assistant after update.
 - Breaking: domain renamed from `local_weather_forecast` to `barocast_ha`.
+- Breaking: sensor IDs renamed from `sensor.local_forecast*` to `sensor.barocast_forecast*`.
 - Review integration options if you changed sensor entity IDs.
 
 ### Links

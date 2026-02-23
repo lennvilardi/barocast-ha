@@ -30,13 +30,13 @@ Other options:
 - Update interval (seconds)
 
 ## Exposed sensors
-- `sensor.local_forecast`
-- `sensor.local_forecast_zambretti_detail`
-- `sensor.local_forecast_neg_zam_detail`
-- `sensor.local_forecast_pressure`
-- `sensor.local_forecast_temperature`
-- `sensor.local_forecast_pressurechange`
-- `sensor.local_forecast_temperaturechange`
+- `sensor.barocast_forecast`
+- `sensor.barocast_forecast_zambretti_detail`
+- `sensor.barocast_forecast_neg_zam_detail`
+- `sensor.barocast_forecast_pressure`
+- `sensor.barocast_forecast_temperature`
+- `sensor.barocast_forecast_pressure_change`
+- `sensor.barocast_forecast_temperature_change`
 
 Main sensor extra attributes also include:
 - `temperature_trend_slope_1h`
@@ -44,7 +44,7 @@ Main sensor extra attributes also include:
 ## Compatibility notes
 - Sensor names/attributes are intentionally close to the original YAML package.
 - The integration keeps card compatibility while replacing template/statistics dependencies.
-- Sensor entity names remain `sensor.local_forecast*` for backward card/dashboard compatibility.
+- Sensor entity names are `sensor.barocast_forecast*`.
 
 ---
 
@@ -80,13 +80,13 @@ Autres options :
 - Intervalle de mise à jour (secondes)
 
 ## Capteurs exposés
-- `sensor.local_forecast`
-- `sensor.local_forecast_zambretti_detail`
-- `sensor.local_forecast_neg_zam_detail`
-- `sensor.local_forecast_pressure`
-- `sensor.local_forecast_temperature`
-- `sensor.local_forecast_pressurechange`
-- `sensor.local_forecast_temperaturechange`
+- `sensor.barocast_forecast`
+- `sensor.barocast_forecast_zambretti_detail`
+- `sensor.barocast_forecast_neg_zam_detail`
+- `sensor.barocast_forecast_pressure`
+- `sensor.barocast_forecast_temperature`
+- `sensor.barocast_forecast_pressure_change`
+- `sensor.barocast_forecast_temperature_change`
 
 Les attributs du capteur principal incluent aussi :
 - `temperature_trend_slope_1h`
@@ -94,4 +94,4 @@ Les attributs du capteur principal incluent aussi :
 ## Notes de compatibilité
 - Les noms/attributs des capteurs restent proches du package YAML d'origine.
 - L'intégration conserve la compatibilité des cartes tout en supprimant la dépendance aux templates/statistics YAML.
-- Les noms d’entités capteurs restent `sensor.local_forecast*` pour conserver la compatibilité dashboard/carte.
+- Les noms d’entités capteurs sont `sensor.barocast_forecast*`.

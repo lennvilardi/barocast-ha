@@ -10,7 +10,8 @@ This repository contains only the HACS custom integration:
 ## Breaking change (domain rename)
 - Integration domain is now `barocast_ha`.
 - Existing installations must remove the old integration entry and add **Barocast HA** again.
-- Sensor names remain `sensor.local_forecast*` to keep dashboard/card compatibility.
+- Sensor names are now `sensor.barocast_forecast*`.
+- Existing sensor entities are migrated automatically when possible.
 
 Related dashboard card repository:
 - https://github.com/lennvilardi/barocast-ha-card
@@ -27,13 +28,13 @@ Related dashboard card repository:
    - pressure sea-level mode, altitude, hemisphere, update interval
 
 Created sensors:
-- `sensor.local_forecast`
-- `sensor.local_forecast_zambretti_detail`
-- `sensor.local_forecast_neg_zam_detail`
-- `sensor.local_forecast_pressure`
-- `sensor.local_forecast_temperature`
-- `sensor.local_forecast_pressurechange`
-- `sensor.local_forecast_temperaturechange`
+- `sensor.barocast_forecast`
+- `sensor.barocast_forecast_zambretti_detail`
+- `sensor.barocast_forecast_neg_zam_detail`
+- `sensor.barocast_forecast_pressure`
+- `sensor.barocast_forecast_temperature`
+- `sensor.barocast_forecast_pressure_change`
+- `sensor.barocast_forecast_temperature_change`
 
 ## Algorithm references
 - https://github.com/sassoftware/iot-zambretti-weather-forcasting
@@ -57,7 +58,8 @@ Ce dépôt contient uniquement l’intégration HACS :
 ## Changement majeur (renommage du domain)
 - Le domain d’intégration est désormais `barocast_ha`.
 - Les installations existantes doivent supprimer l’ancienne entrée puis ajouter **Barocast HA**.
-- Les noms de capteurs restent `sensor.local_forecast*` pour conserver la compatibilité dashboard/carte.
+- Les noms de capteurs sont désormais `sensor.barocast_forecast*`.
+- Les entités capteurs existantes sont migrées automatiquement lorsque possible.
 
 Dépôt de la carte dashboard associé :
 - https://github.com/lennvilardi/barocast-ha-card
@@ -74,13 +76,13 @@ Dépôt de la carte dashboard associé :
    - mode pression au niveau de la mer, altitude, hémisphère, intervalle de mise à jour
 
 Capteurs créés :
-- `sensor.local_forecast`
-- `sensor.local_forecast_zambretti_detail`
-- `sensor.local_forecast_neg_zam_detail`
-- `sensor.local_forecast_pressure`
-- `sensor.local_forecast_temperature`
-- `sensor.local_forecast_pressurechange`
-- `sensor.local_forecast_temperaturechange`
+- `sensor.barocast_forecast`
+- `sensor.barocast_forecast_zambretti_detail`
+- `sensor.barocast_forecast_neg_zam_detail`
+- `sensor.barocast_forecast_pressure`
+- `sensor.barocast_forecast_temperature`
+- `sensor.barocast_forecast_pressure_change`
+- `sensor.barocast_forecast_temperature_change`
 
 ## Références algorithmiques
 - https://github.com/sassoftware/iot-zambretti-weather-forcasting
