@@ -1,7 +1,7 @@
 ## Release {{VERSION}}
 
 ### Points clés
-- Première release de la carte dashboard améliorée pour Local Weather Forecast.
+- Première release de la carte dashboard améliorée pour Barocast HA.
 - Meilleure robustesse au démarrage quand les entités sont indisponibles.
 - Mapping des libellés de langue corrigé.
 

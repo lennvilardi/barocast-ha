@@ -1,7 +1,7 @@
 ## Release {{VERSION}}
 
 ### Highlights
-- First polished dashboard card release for Local Weather Forecast.
+- First polished dashboard card release for Barocast HA.
 - Better startup resilience for unavailable entities.
 - Improved language label mapping.
 

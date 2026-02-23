@@ -1,4 +1,4 @@
-class LocalWeatherForecastCard extends HTMLElement {
+class BarocastHACard extends HTMLElement {
   static getStubConfig() {
     return {
       entity: "sensor.local_forecast",
@@ -71,7 +71,7 @@ class LocalWeatherForecastCard extends HTMLElement {
     const langIndex = Number.isInteger(langRaw) ? Math.max(0, Math.min(4, langRaw)) : 1;
     const L = this._labels(langIndex);
 
-    const title = main?.state ?? "Local Weather Forecast";
+    const title = main?.state ?? "Barocast HA";
     const shortTerm = this._safeArray(main?.attributes?.forecast_short_term, []);
     const shortText = shortTerm[0] ?? L.unavailable;
 
@@ -232,11 +232,11 @@ class LocalWeatherForecastCard extends HTMLElement {
   }
 }
 
-customElements.define("local-weather-forecast-card", LocalWeatherForecastCard);
+customElements.define("barocast-ha-card", BarocastHACard);
 
 window.customCards = window.customCards || [];
 window.customCards.push({
-  type: "local-weather-forecast-card",
-  name: "Local Weather Forecast Card",
-  description: "A polished 12h local weather card for sensors from Local Weather Forecast integration"
+  type: "barocast-ha-card",
+  name: "Barocast HA Card",
+  description: "A polished 12h local weather card for sensors from the Barocast HA integration"
 });

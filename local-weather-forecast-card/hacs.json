@@ -1,7 +1,0 @@
-{
-  "name": "Local Weather Forecast Card",
-  "render_readme": true,
-  "content_in_root": true,
-  "filename": "local-weather-forecast-card.js",
-  "homeassistant": "2024.6.0"
-}

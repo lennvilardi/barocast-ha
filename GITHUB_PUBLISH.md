@@ -45,21 +45,21 @@ gh release create v0.1.0 \
 ## 2) Dépôt carte Dashboard
 
 Le template prêt à publier se trouve dans:
-- `local-weather-forecast-card/`
+- `barocast-ha-card/`
 
 ### Commandes
 ```bash
-cd /Users/andrevillien/Documents/meteo/local-weather-forecast-card
+cd /Users/andrevillien/Documents/meteo/barocast-ha-card
 
 git init
 git branch -M main
 git add .
-git commit -m "feat: initial Local Weather Forecast Dashboard card"
+git commit -m "feat: initial Barocast HA dashboard card"
 
-# IMPORTANT: nom de repo recommandé = local-weather-forecast-card
+# IMPORTANT: nom de repo recommandé = barocast-ha-card
 # (le fichier JS doit matcher le nom du repo selon les règles HACS plugin/dashboard)
 
-git remote add origin git@github.com:<USER>/local-weather-forecast-card.git
+git remote add origin git@github.com:<USER>/barocast-ha-card.git
 git push -u origin main
 
 # Recommandé: release
@@ -68,7 +68,7 @@ git push -u origin main
 
 # Option GitHub Release (CLI GitHub)
 gh release create v0.1.0 \
-  --title "Local Weather Forecast Card v0.1.0" \
+  --title "Barocast HA Card v0.1.0" \
   --notes-file .github/RELEASE_TEMPLATE.en.md
 ```
 
@@ -90,5 +90,5 @@ Si la commande ne retourne rien, pas de secret détecté par cette passe regex.
   - `.github/RELEASE_TEMPLATE.en.md`
   - `.github/RELEASE_TEMPLATE.fr.md`
 - Carte dashboard:
-  - `local-weather-forecast-card/.github/RELEASE_TEMPLATE.en.md`
-  - `local-weather-forecast-card/.github/RELEASE_TEMPLATE.fr.md`
+  - `barocast-ha-card/.github/RELEASE_TEMPLATE.en.md`
+  - `barocast-ha-card/.github/RELEASE_TEMPLATE.fr.md`

@@ -4,11 +4,11 @@ Repository: `barocast-ha`
 
 Local weather forecast for Home Assistant based on pressure trend algorithms (Zambretti + Negretti/Zambra), with:
 - a HACS custom integration (`local_weather_forecast`)
-- a HACS dashboard card (`local-weather-forecast-card`)
+- a HACS dashboard card (`barocast-ha-card`)
 
 ## Repository layout
 - `custom_components/local_weather_forecast/`: HACS integration (config flow + sensors)
-- `local-weather-forecast-card/`: HACS dashboard card (custom Lovelace card)
+- `barocast-ha-card/`: HACS dashboard card (custom Lovelace card)
 
 ## Quick start (Integration)
 1. Add this repository to HACS as a **Custom repository** (type **Integration**).
@@ -31,12 +31,12 @@ Created sensors:
 - `sensor.local_forecast_temperaturechange`
 
 ## Quick start (Dashboard card)
-Use the dedicated folder/repo `local-weather-forecast-card/` in HACS as **Dashboard**.
+Use the dedicated folder/repo `barocast-ha-card/` in HACS as **Dashboard**.
 
 Example Lovelace config:
 
 ```yaml
-type: custom:local-weather-forecast-card
+type: custom:barocast-ha-card
 entity: sensor.local_forecast
 detail_entity: sensor.local_forecast_zambretti_detail
 pressure_change_entity: sensor.local_forecast_pressurechange
@@ -58,11 +58,11 @@ pressure_change_entity: sensor.local_forecast_pressurechange
 
 Prévision météo locale pour Home Assistant basée sur les tendances de pression (Zambretti + Negretti/Zambra), avec :
 - une intégration HACS (`local_weather_forecast`)
-- une carte dashboard HACS (`local-weather-forecast-card`)
+- une carte dashboard HACS (`barocast-ha-card`)
 
 ## Structure du dépôt
 - `custom_components/local_weather_forecast/` : intégration HACS (config flow + capteurs)
-- `local-weather-forecast-card/` : carte dashboard HACS (carte Lovelace custom)
+- `barocast-ha-card/` : carte dashboard HACS (carte Lovelace custom)
 
 ## Démarrage rapide (Intégration)
 1. Ajoute ce dépôt dans HACS en **Custom repository** (type **Integration**).
@@ -85,12 +85,12 @@ Capteurs créés :
 - `sensor.local_forecast_temperaturechange`
 
 ## Démarrage rapide (Carte dashboard)
-Utilise le dossier/repo dédié `local-weather-forecast-card/` dans HACS en type **Dashboard**.
+Utilise le dossier/repo dédié `barocast-ha-card/` dans HACS en type **Dashboard**.
 
 Exemple Lovelace :
 
 ```yaml
-type: custom:local-weather-forecast-card
+type: custom:barocast-ha-card
 entity: sensor.local_forecast
 detail_entity: sensor.local_forecast_zambretti_detail
 pressure_change_entity: sensor.local_forecast_pressurechange

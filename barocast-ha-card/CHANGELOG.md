@@ -4,7 +4,7 @@ All notable changes to this project will be documented in this file.
 
 ## [0.1.0] - 2026-02-20
 ### Added
-- Initial HACS dashboard card: `local-weather-forecast-card`.
+- Initial HACS dashboard card: `barocast-ha-card`.
 - Defensive rendering for startup/unavailable sensor states.
 - Gradient-based polished visual layout for forecast summary.
 - Compatibility with `sensor.local_forecast` and detail sensors.
@@ -22,7 +22,7 @@ Toutes les modifications notables de ce projet sont documentées dans ce fichier
 
 ## [0.1.0] - 2026-02-20
 ### Ajouts
-- Première carte dashboard HACS : `local-weather-forecast-card`.
+- Première carte dashboard HACS : `barocast-ha-card`.
 - Rendu robuste face aux états indisponibles au démarrage.
 - Mise en page visuelle améliorée (dégradés + synthèse prévision).
 - Compatibilité avec `sensor.local_forecast` et capteurs de détail.

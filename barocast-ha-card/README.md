@@ -1,6 +1,6 @@
-# Local Weather Forecast Card (HACS Dashboard)
+# Barocast HA Card (HACS Dashboard)
 
-Custom Lovelace card for the **Local Weather Forecast** integration.
+Custom Lovelace card for the **Barocast HA** integration.
 
 ## Features
 - Clear 3-block layout: now / next slot / later slot
@@ -20,13 +20,13 @@ Custom Lovelace card for the **Local Weather Forecast** integration.
 1. HACS → menu (⋮) → **Custom repositories**.
 2. Add this repository URL.
 3. Category: **Dashboard** (backend HACS: plugin).
-4. Install **Local Weather Forecast Card**.
+4. Install **Barocast HA Card**.
 5. Reload browser cache.
 
 ## Card configuration
 
 ```yaml
-type: custom:local-weather-forecast-card
+type: custom:barocast-ha-card
 entity: sensor.local_forecast
 detail_entity: sensor.local_forecast_zambretti_detail
 pressure_change_entity: sensor.local_forecast_pressurechange
@@ -35,7 +35,7 @@ pressure_change_entity: sensor.local_forecast_pressurechange
 ## Optional configuration
 
 ```yaml
-type: custom:local-weather-forecast-card
+type: custom:barocast-ha-card
 entity: sensor.local_forecast
 detail_entity: sensor.local_forecast_zambretti_detail
 pressure_change_entity: sensor.local_forecast_pressurechange
@@ -50,7 +50,7 @@ icon_now: mdi:weather-cloudy-clock
 
 # Version Française
 
-Carte Lovelace custom pour l’intégration **Local Weather Forecast**.
+Carte Lovelace custom pour l’intégration **Barocast HA**.
 
 ## Fonctionnalités
 - Mise en page claire en 3 blocs : maintenant / prochain créneau / créneau suivant
@@ -70,13 +70,13 @@ Carte Lovelace custom pour l’intégration **Local Weather Forecast**.
 1. HACS → menu (⋮) → **Dépôts personnalisés**.
 2. Ajoutez l’URL de ce dépôt.
 3. Catégorie : **Dashboard** (backend HACS : plugin).
-4. Installez **Local Weather Forecast Card**.
+4. Installez **Barocast HA Card**.
 5. Rechargez le cache du navigateur.
 
 ## Configuration de la carte
 
 ```yaml
-type: custom:local-weather-forecast-card
+type: custom:barocast-ha-card
 entity: sensor.local_forecast
 detail_entity: sensor.local_forecast_zambretti_detail
 pressure_change_entity: sensor.local_forecast_pressurechange
@@ -85,7 +85,7 @@ pressure_change_entity: sensor.local_forecast_pressurechange
 ## Configuration optionnelle
 
 ```yaml
-type: custom:local-weather-forecast-card
+type: custom:barocast-ha-card
 entity: sensor.local_forecast
 detail_entity: sensor.local_forecast_zambretti_detail
 pressure_change_entity: sensor.local_forecast_pressurechange
